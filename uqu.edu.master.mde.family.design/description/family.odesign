@@ -43,6 +43,17 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="NODE_CREATION_WOMAN" label="Create Woman" forceRefresh="true" nodeMappings="//@ownedViewpoints[name='VIEWPOINT_MAIN']/@ownedRepresentations[name='DIAGRAM_FAMILY']/@defaultLayer/@nodeMappings[name='NODE_WOMAN']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="basicfamily.Woman" referenceName="members">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'woman'+container.members->filter(basicfamily::Woman)->size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
